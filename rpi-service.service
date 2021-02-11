@@ -1,0 +1,18 @@
+[Unit]
+Description=NodeJS service run
+Documentation=https://example.com
+After=network.target
+
+[Service]
+Environment="PORT=19600"
+Environment="LOG_LEVEL=http"
+Environment="DATA_DIR=/home/pi/rpi-service/data"
+Environment="REPORT_DIR=/home/pi/rpi-service/reports"
+Environment="JSON_REPORT_DIR=/home/pi/rpi-service/reports/json"
+Type=simple
+User=pi
+ExecStart=/usr/bin/node /home/pi/rpi-service/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

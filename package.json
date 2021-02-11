@@ -1,0 +1,32 @@
+{
+  "name": "rpi-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "clear-data": "rm -rf data reports",
+    "deploy": "cp ./rpi-service.service /lib/systemd/system/rpi-system-status.service;  systemctl daemon-reload; systemctl restart rpi-system-status.service;",
+    "start:dev": "PORT=10500 node --no-warnings index.js"
+  },
+  "engines": {
+    "node": "13.17"
+  },
+  "keywords": [],
+  "author": "Thomas Kottke <t.kottke90@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.17.1",
+    "http-terminator": "3.0.0",
+    "lodash": "4.17.20",
+    "node-cron": "2.0.3",
+    "showdown": "1.9.1",
+    "socket.io": "3.1.1",
+    "systeminformation": "5.1.2"
+  },
+  "devDependencies": {
+    "chai": "^4.3.0",
+    "chai-http": "^4.3.0",
+    "mocha": "^8.2.1",
+    "sinon": "^9.2.4"
+  }
+}
